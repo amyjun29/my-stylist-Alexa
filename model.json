@@ -1,0 +1,200 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my stylist",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StylistIntent",
+                    "slots": [
+                        {
+                            "name": "day",
+                            "type": "day"
+                        },
+                        {
+                            "name": "city",
+                            "type": "AMAZON.US_CITY",
+                            "samples": [
+                                "at {city}",
+                                "in {city}",
+                                "i'll be in {city}",
+                                "{city}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "what should i wear in {city} {day}",
+                        "what should I wear {day} in {city}",
+                        "what should I wear {day}",
+                        "what should I wear in {city}",
+                        "what style",
+                        "what clothes can I wear",
+                        "what can I wear",
+                        "what clothes",
+                        "what clothes should I wear"
+                    ]
+                },
+                {
+                    "name": "LocationIntent",
+                    "slots": [
+                        {
+                            "name": "city",
+                            "type": "AMAZON.US_CITY"
+                        }
+                    ],
+                    "samples": [
+                        "in {city}",
+                        "traveling to {city}",
+                        "I'll be in {city}",
+                        "{city}",
+                        "I'm going to {city}"
+                    ]
+                },
+                {
+                    "name": "DateIntent",
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "{date}",
+                        "on {date}"
+                    ]
+                },
+                {
+                    "name": "LaunchRequest",
+                    "slots": [],
+                    "samples": [
+                        "tell my stylist",
+                        "my stylist",
+                        "ask my stylist",
+                        "open my stylist"
+                    ]
+                },
+                {
+                    "name": "weatherIntent",
+                    "slots": [],
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "day",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "tomorrow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "today"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "StylistIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "day",
+                            "type": "day",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {},
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.667368801762.1367504308117.280696453509"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "city",
+                            "type": "AMAZON.US_CITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.161233211338.387066010277"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1498970429262.289919083488",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where are you going?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.123109269633.739350287823",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "today or tomorrow?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.161233211338.387066010277",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "where at?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "where will you be?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "where are you going?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.667368801762.1367504308117.280696453509",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, I don't know that... say today or tomorrow"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, I can't help you with that yet... you can say today or tomorrow "
+                    }
+                ]
+            }
+        ]
+    }
+}

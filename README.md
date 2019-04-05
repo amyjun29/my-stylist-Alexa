@@ -6,7 +6,7 @@ When you're busy in the morning or too excited about a date the next day, it can
 
 ## What it does
 
-When you open "my stylist" with Alexa, you can ask her for outfit suggestions by providing her with a location. Alexa will automatically check the weather of the given day (or the day next) and location to suggest an outfit idea from an array of outfit suggestions according to the weather summary and temperature. 
+When you open "my stylist" with Alexa, you can ask her for outfit suggestions by providing her a location. Alexa will automatically check the weather of the given day (or the day next) and location to suggest an outfit idea from an array of outfit suggestions according to the weather summary and temperature. 
 
 ## How I built it
 
